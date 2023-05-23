@@ -23,6 +23,11 @@ app.get("/", async (req, res) => {
     message: "connect success",
   });
 });
+app.get("/thanh", async (req, res) => {
+  await res.status(200).json({
+    message: "connect success",
+  });
+});
 app.use(checkToken); // guard
 app.use("/user", postRouter);
 app.use("/user", userRouter);
