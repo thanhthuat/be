@@ -1,5 +1,5 @@
 import mongoose, { Schema, ObjectId } from "mongoose";
-import isEmail from "validator/lib/isemail.js";
+// import isEmail from "validator/lib/isemail.js";
 
 export default mongoose.model(
   "User",
@@ -17,7 +17,7 @@ export default mongoose.model(
       type: String,
       required: true,
       validate: {
-        validator: (value) => isEmail,
+        validator: (value) => value.length > 3,
         message: "Email is incorrect format",
       },
     },
