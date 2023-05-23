@@ -27,7 +27,6 @@ export default function checkToken(req, res, next) {
       return
     }
   } catch (error) {
-    debugger
     res.status(500).json({
       mesage: error.message,
     });

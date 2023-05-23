@@ -62,7 +62,7 @@ const deleteStudents = async (id) => {
   try {
     const student = await Student.findById(id);
 
-    await student.remove ();
+    await student.remove();
     return student;
   } catch (error) {
     if (error.errors) {
@@ -91,7 +91,7 @@ async function generateFakeStudents() {
     fakeStudents.push(fakeStudent);
   }
 
-  // debugger;
+  //
   await Student.insertMany(fakeStudents);
 }
 
@@ -101,5 +101,5 @@ export default {
   generateFakeStudents,
   getDetailStudent,
   updateStudents,
-  deleteStudents
+  deleteStudents,
 };

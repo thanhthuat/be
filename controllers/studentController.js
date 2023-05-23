@@ -74,7 +74,6 @@ async function insertStudents(req, res) {
       data: student,
     });
   } catch (error) {
-    debugger;
     res.status(500).json({
       message: " Cannot insert student :",
       validatorErrors: error.validationError,
@@ -93,5 +92,5 @@ export default {
   getStudentsById,
   updateStudents,
   insertStudents,
-  deleteStudents
+  deleteStudents,
 };

@@ -5,12 +5,11 @@ import { body, validationResult } from "express-validator";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  debugger;
   res.status(201).json({
     success: true,
     message: "signup successful",
-    data: ''
-});
+    data: "",
+  });
 });
 router.post(
   "/",
@@ -18,7 +17,6 @@ router.post(
 
   body("password").isLength({ min: 5 }),
   (req, res) => {
-
     const { name, password } = req.body;
     res.status(200).json(req.body);
   }
