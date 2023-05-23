@@ -18,7 +18,7 @@ router.post(
 
   body("password").isLength({ min: 5 }),
   (req, res) => {
-    debugger;
+
     const { name, password } = req.body;
     res.status(200).json(req.body);
   }
