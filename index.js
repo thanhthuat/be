@@ -2,6 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import bodyParser from "body-parser";
+import { getLayout } from "./repositories/newsRepositories.js";
 import mongoose from "mongoose";
 import fs from "fs";
 import cors from "cors";
@@ -26,6 +27,15 @@ app.get("/", async (req, res) => {
 app.get("/thanh", async (req, res) => {
   return res.status(200).json({
     message: "connect success",
+  });
+});
+
+app.post("/getdata", async (req, res) => {
+  let respone = await getLayout(req.body);
+  console.log("respone data", respone);
+  res.status(200).json({
+    message: "get list json success",
+    data: respone,
   });
 });
 // app.use(checkToken); // guard
