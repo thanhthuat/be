@@ -28,19 +28,21 @@ app.get("/thanh", async (req, res) => {
     message: "connect success",
   });
 });
-app.use(checkToken); // guard
-app.use("/user", postRouter);
-app.use("/user", userRouter);
-app.use("/students", studentRouter);
-
-const startServer = async () => {
-  try {
-    await connectDB(process.env.MONGODB_URL);
-    app.listen(PORT, () => {
-      console.log("server has started on port http://localhost:8080");
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-startServer();
+// app.use(checkToken); // guard
+// app.use("/user", postRouter);
+// app.use("/user", userRouter);
+// app.use("/students", studentRouter);
+app.listen(PORT, () => {
+  console.log("server has started on port http://localhost:8080");
+});
+// const startServer = async () => {
+//   try {
+//     await connectDB(process.env.MONGODB_URL);
+//     app.listen(PORT, () => {
+//       console.log("server has started on port http://localhost:8080");
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// startServer();
