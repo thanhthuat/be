@@ -19,12 +19,12 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.get("/", async (req, res) => {
-  await res.status(200).json({
+  return res.status(200).json({
     message: "connect success",
   });
 });
 app.get("/thanh", async (req, res) => {
-  await res.status(200).json({
+  return res.status(200).json({
     message: "connect success",
   });
 });

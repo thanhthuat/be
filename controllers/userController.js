@@ -4,7 +4,7 @@ export const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
    let existingUser = await userRepositories.login({ email, password });
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "login successful",
       data: existingUser,
@@ -28,7 +28,7 @@ export const registerUser = async (req, res) => {
       phoneNumber,
       address,
     });
-    res.status(200).json({
+   return res.status(200).json({
       message: "Register user successfully",
       data: user,
     });

@@ -5,7 +5,7 @@ export const getPosts = async (req, res) => {
   try {
     const postMessages = await PostMessage.find();
     // console.log("🚀 ~ file: posts.js:6 ~ getPosts ~ postMessages", postMessages)
-    res.status(200).json(postMessages);
+  return  res.status(200).json(postMessages);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -16,7 +16,7 @@ export const createPost = async (req, res) => {
   const newPost = new PostMessage(post);
   try {
     await newPost.save();
-    res.status(201).json(newPost);
+  return  res.status(201).json(newPost);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
@@ -29,14 +29,14 @@ export const updatePost = async (req, res) => {
 
   const updatePost = await PostMessage.findByIdAndUpdate(_id, post, { new: true });
 
-  res.json(updatePost);
+return  res.json(updatePost);
 };
 
 export const deletePost = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send("NO post with that id");
   await PostMessage.findByIdAndRemove(id);
-  res.json({ message: "Post deleted successfully" });
+ return res.json({ message: "Post deleted successfully" });
 };
 
 export const likePost = async (req, res) => {

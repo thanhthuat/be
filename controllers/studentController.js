@@ -10,7 +10,7 @@ async function getAllStudents(req, res) {
       page,
       searchString,
     });
-    res.status(200).json({
+   return res.status(200).json({
       message: " get all student success :",
       data: filteredStudents,
       size: filteredStudents.length,
@@ -27,7 +27,7 @@ async function getStudentsById(req, res) {
   let studentId = req.params.id;
   try {
     const student = await studentRepositories.getStudentsById(studentId);
-    res.status(200).json({
+    return res.status(200).json({
       message: "Get detail Student successfully",
       data: student,
     });
@@ -41,7 +41,7 @@ async function getStudentsById(req, res) {
 async function updateStudents(req, res) {
   try {
     const student = await studentRepositories.updateStudents(req.body);
-    res.status(200).json({
+  return  res.status(200).json({
       message: " Update Student successfully",
       data: student,
     });
@@ -55,7 +55,7 @@ async function updateStudents(req, res) {
 async function deleteStudents(req, res) {
   try {
     const student = await studentRepositories.deleteStudents(id);
-    res.status(200).json({
+  return  res.status(200).json({
       message: " delete Student successfully",
       data: student,
     });
@@ -69,7 +69,7 @@ async function deleteStudents(req, res) {
 async function insertStudents(req, res) {
   try {
     const student = await studentRepositories.insertStudents(req.body);
-    res.status(200).json({
+  return  res.status(200).json({
       message: "Insert Student successfully",
       data: student,
     });
