@@ -30,7 +30,7 @@ app.get("/thanh", async (req, res) => {
   });
 });
 
-app.post("/getdata", async (req, res) => {
+app.get("/getdata", async (req, res) => {
   let respone = await getLayout(req.body);
   console.log("respone data", respone);
   res.status(200).json({
